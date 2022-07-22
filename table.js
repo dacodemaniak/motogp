@@ -49,6 +49,15 @@ const interns = [
     }
 ]
 
+/**
+ * 
+ * @param {string} element 
+ * @returns HTMLElement
+ */
+const buildHtmlElement = (element) => {
+    return document.createElement(element)
+}
+
 // Displaying all of interns in a row in a table
 const rowMaker = () => {
 
@@ -57,31 +66,31 @@ const rowMaker = () => {
 
     for (const intern of interns) {
         // 1. Create a tr element
-        const newTr = document.createElement('tr')
+        const newTr = buildHtmlElement('tr')
 
         // 2. Create a td element and write intern id into
-        const idTd = document.createElement('td')
+        const idTd = buildHtmlElement('td')
         idTd.innerHTML = intern.id
         // 3. Add the brand new td to tr
         newTr.appendChild(idTd)
 
         // 2. Create a td element and write intern lastname into
-        const lastnameTd = document.createElement('td')
+        const lastnameTd = buildHtmlElement('td')
         lastnameTd.innerHTML = intern.lastname
         // 3. Add the brand new td to tr
         newTr.appendChild(lastnameTd)
 
         // 2. Create a td element and write intern firstname into
-        const firstnameTd = document.createElement('td')
+        const firstnameTd = buildHtmlElement('td')
         firstnameTd.innerHTML = intern.firstname
         // 3. Add the brand new td to tr
         newTr.appendChild(firstnameTd)
 
-        const phoneTd = document.createElement('td')
+        const phoneTd = buildHtmlElement('td')
         phoneTd.innerHTML = intern.phone
         newTr.appendChild(phoneTd)
         
-        const emailTd = document.createElement('td')
+        const emailTd = buildHtmlElement('td')
         emailTd.innerHTML = intern.mail
         newTr.appendChild(emailTd)
 
@@ -103,7 +112,7 @@ const sortTableOnName = () => {
         return intern1.lastname.localeCompare(intern2.lastname)
     })
     console.log(interns)
-    //rowMaker()
+    rowMaker()
 }
 
 function sortTable() {
@@ -118,3 +127,16 @@ function sortTable() {
     console.log(interns)
     rowMaker()
 }
+
+const moi = {
+    nom: 'Aubert'
+}
+console.log(`Moi a le nom de ${moi.nom}`)
+// Affecter à un nouvel objet l'objet moi
+const toi = moi;
+console.log(`Toi a le nom ${toi.nom}`)
+toi.nom = 'Pia'
+console.log(`Moi maintenant a le nom de ${moi.nom}`)
+const lui = {...moi}
+lui.nom = 'Casper le Fantôme'
+console.log()
