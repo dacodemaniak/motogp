@@ -103,7 +103,7 @@ const sortTableOnName = () => {
         return intern1.lastname.localeCompare(intern2.lastname)
     })
     console.log(interns)
-    rowMaker()
+    //rowMaker()
 }
 
 function sortTable() {
@@ -118,4 +118,3 @@ function sortTable() {
     console.log(interns)
     rowMaker()
 }
-
